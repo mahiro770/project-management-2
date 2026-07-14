@@ -1,0 +1,6 @@
+project-management/target/
+project-management/target copy/
+project-management/.git-backend-backup/
+.vscode/
+*.class
+node_modules/

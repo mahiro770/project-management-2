@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>案件追加 | 案件配信ツール</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <a href="index.html" class="back-link">←　一覧に戻る</a>
+        <h1> 案件追加</h1>
+        <p id="status-message" hidden></p>
+        <form id="add-form" class="add-form">
+            <label>
+                案件名<span class="required">※</span>
+                <input type="text" name="title" required>
+            </label>
+            <label>
+                会社名<span class="required">※</span>
+                <input type="text" name="clientName" required>
+            </label>
+            <label>
+                必須スキル
+                <input type="text" name="requiredSkills" required> 
+            </label>
+            <label>
+                勤務地
+                <input type="text" name="location" required>
+            </label>
+            <label>
+                単価(下限)
+                <input type="number" name="priceMin" min="0">
+            </label>
+            <label>
+                単価(上限)
+                <input type="number" name="priceMax" min="0">
+            </label>
+            <label>
+                カテゴリ
+                <input type="text" name="category" required>
+            </label>
+            <button type="submit" class="submit-btn">登録する</button>
+        </form>
+    </main>
+    <script type="module" src="js/add.js"></script>
+</body>
+
+</html>

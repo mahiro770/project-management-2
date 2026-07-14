@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>案件配信ツール</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="header-nav">
+      <div class="site-header">
+        <span class="header-left">
+          <span class="logo">案件配信ツール</span>
+          <nav class="global-nav">
+            <a href="/">案件一覧</a>
+            <a href="/?applied=true">応募済み</a>
+            <a href="#">閲覧履歴</a>
+            <a href="/?favorite=true">お気に入り</a>
+          </nav>
+        </span>
+      </div>
+      <div class="header-right">
+        <nav class="region-tabs">
+          <button class="tab active" data-region="all">すべて</button>
+          <button class="tab" data-region="east">東日本</button>
+          <button class="tab" data-region="central">中日本</button>
+          <button class="tab" data-region="west">西日本</button>
+        </nav>
+        <nav class="header-logout">
+          <button class="logout-button">ログアウト</button>
+        </nav>
+      </div>
+
+    </nav>
+  </header>
+
+  <div class="sidebar-trigger">
+    <aside class="sidebar">
+      <h2>カテゴリ</h2>
+      <ul class="category-list">
+        <li><button class="category active" data-category="all">すべて</button></li>
+        <li><button class="category" data-category="develop">開発</button></li>
+        <li><button class="category" data-category="embedded">組み込み</button></li>
+        <li><button class="category" data-category="infra">インフラ</button></li>
+      </ul>
+    </aside>
+  </div>
+  <main>
+    <div class="list-header">
+      <h1>案件一覧</h1>
+      <a href="add.html" class="add-project-btn">+　案件追加</a>
+    </div>
+    <div class="search-bar">
+      <input type="search" id="keyword-input" placeholder="キーワード(案件名・会社名・スキルなど)">
+    </div>
+    <p class="result-count" id="result-count"></p>
+   <p id="status-message" hidden></p> 
+    <div id="project-list"></div>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
