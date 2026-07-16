@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>案件更新 | 案件配信ツール</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <a href="index.html" class="back-link">←一覧に戻る</a>
+        <h1>案件更新</h1>
+        <p id="status-message" hidden></p>
+        <form id="edit-form" class="add-form" hidden>
+            <label>
+                案件名<span class="required">※</span>
+                <input type="text" name="title" required>
+            </label>
+            <label>
+                会社名<span class="required">※</span>
+                <input type="text" name="clientName" required>
+            </label>
+            <label>
+                必須スキル
+                <input type="text" name="requiredSkills">
+            </label>
+            <label>
+                勤務地
+                <input type="text" name="location">
+            </label>
+            <label>
+                単価（下限）
+                <input type="number" name="priceMin" min="0">
+            </label>
+            <label>
+                単価（上限）
+                <input type="number" name="priceMax" min="0">
+            </label>
+            <label>
+                配属状況
+                <select name="status">
+                    <option value="OPEN">OPEN</option>
+                    <option value="CLOSED">CLOSED</option>
+                </select>
+            </label>
+            <label>
+                カテゴリ
+                <input type="text" name="category">
+            </label>
+            <button type="submit" class="submit-btn">更新する</button>
+        </form>
+    </main>
+    <script type="module" src="js/edit.js"></script>
+</body>
+</html>

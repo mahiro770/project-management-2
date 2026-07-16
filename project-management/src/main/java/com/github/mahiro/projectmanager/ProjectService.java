@@ -47,6 +47,9 @@ public class ProjectService {
 
         Integer priceMin = (min == null || min.isBlank()) ? null : Integer.parseInt(min);
         Integer priceMax = (max == null || max.isBlank()) ? null : Integer.parseInt(max);
+        if( priceMin != null && priceMax != null && priceMax < priceMin){
+            throw new IllegalArgumentException("上限は下限以上の値を入力してください");
+        }
 
         Project project = new Project(
                 null,
@@ -62,6 +65,7 @@ public class ProjectService {
                 false,
                 "develop");
 
+    
         Integer generatedId = repo.insert(project);
 
         if (generatedId == null) {
@@ -79,7 +83,8 @@ public class ProjectService {
                               String newLocation,
                               String inputPriceMin,
                               String inputPriceMax,
-                              String newStatus) {
+                              String newStatus,
+                              String newCategory) {
 
         Project project = repo.findById(id);
 
@@ -117,11 +122,21 @@ public class ProjectService {
             project.setPriceMax(Integer.parseInt(inputPriceMax));
         }
 
+        if (project.getPriceMin() != null && project.getPriceMax() != null
+             && project.getPriceMax() < project.getPriceMin()) {
+                throw new IllegalArgumentException("上限額は下限額以上の値を入力してください");
+             }
+
         boolean updateStatus = !newStatus.isBlank();
         if (updateStatus) {
             project.setStatus(newStatus);
         }
 
+        boolean updateCategory = !newCategory.isBlank();
+        if (updateCategory) {
+            project.setCategory(newCategory);
+        }
+        
         project.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
 
         repo.update(
@@ -132,7 +147,8 @@ public class ProjectService {
                 updateLocation,
                 updatePriceMin,
                 updatePriceMax,
-                updateStatus);
+                updateStatus,
+                updateCategory);
 
         return repo.findById(id);
     }

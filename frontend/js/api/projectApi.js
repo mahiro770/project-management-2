@@ -69,4 +69,21 @@ async function deleteProject(id) {
     }
 }
 
-export { getProjectList, getProjectDetail, updateApplied, createProject ,deleteProject };
+async function updateProject(id,{title,clientName,requiredSkills,location,priceMin,priceMax,status,category}){
+    const res = await fetch(`${BASE_URL}/${id}`,{
+        method:"PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({title,clientName,requiredSkills,location,priceMin,priceMax,status,category}),
+    });
+
+    if(!res.ok){
+        const body = await  res.json().catch(() => null);
+        const message = body?.error?.message ?? `更新に失敗しました　(status: ${res.status})`;
+        throw new Error(message);
+    }
+
+    return res.json();
+
+}
+
+export { getProjectList, getProjectDetail, updateApplied, createProject ,deleteProject, updateProject };

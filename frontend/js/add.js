@@ -20,6 +20,11 @@ formEl.addEventListener("submit", async (event) => {
   const priceMax = formData.get("priceMax");
   const category = formData.get("category").trim();
 
+  if (priceMin !== "" && priceMax !== "" && Number(priceMax) < Number(priceMin)) {
+    renderStatus("上限は下限以上の値を入力してください");
+    return;
+  }
+
   renderStatus("登録中...");
 
   try {
