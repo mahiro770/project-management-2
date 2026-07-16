@@ -104,6 +104,7 @@ public class Main {
                                 System.out.println("最低金額：" + project.getPriceMin());
                                 System.out.println("最高金額：" + project.getPriceMax());
                                 System.out.println("配属状況：" + project.getStatus());
+                                System.out.println("カテゴリ:"  + project.getCategory());
                                 System.out.println("作成日時：" + project.getCreatedAt());
                                 System.out.println("更新日時：" + project.getUpdatedAt());
 
@@ -191,6 +192,7 @@ public class Main {
                             System.out.println("最低金額：" + project.getPriceMin());
                             System.out.println("最高金額：" + project.getPriceMax());
                             System.out.println("配属状況：" + project.getStatus());
+                            System.out.println("カテゴリ:" + project.getCategory());
                             System.out.println("作成日時：" + project.getCreatedAt());
                             System.out.println("更新日時：" + project.getUpdatedAt());
                             System.out.println("\n============================");
@@ -217,9 +219,12 @@ public class Main {
                             System.out.print("配属状況を変更してください（変更しない場合はEnter）： ");
                             String newStatus = scan.nextLine();
 
+                            System.out.println("カテゴリを変更してください（変更しない場合はEnter) : ");
+                            String newCategory = scan.nextLine();
+
                             try {
                                 service.updateProject(change_id, newTitle, newClientName, newSkills,
-                                        newLocation, inputPriceMin, inputPriceMax, newStatus);
+                                        newLocation, inputPriceMin, inputPriceMax, newStatus, newCategory);
                                 System.out.println("更新が完了しました。");
                             } catch (IllegalArgumentException | ProjectNotFoundException e) {
                                 System.out.println("エラー: " + e.getMessage());

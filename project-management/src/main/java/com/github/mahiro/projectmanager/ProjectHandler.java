@@ -113,7 +113,7 @@ public class ProjectHandler implements HttpHandler {
 
         sendJson(exchange, 201, ProjectJson.toJson(created));
     }
-
+    
     private void handleUpdate(HttpExchange exchange, int id) throws IOException {
         JSONObject requestJson = readJsonBody(exchange);
 
@@ -125,7 +125,8 @@ public class ProjectHandler implements HttpHandler {
                 ProjectJson.optString(requestJson, "location"),
                 ProjectJson.optString(requestJson, "priceMin"),
                 ProjectJson.optString(requestJson, "priceMax"),
-                ProjectJson.optString(requestJson, "status"));
+                ProjectJson.optString(requestJson, "status"),
+                ProjectJson.optString(requestJson, "category"));
 
         sendJson(exchange, 200, ProjectJson.toJson(updated));
     }

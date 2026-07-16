@@ -171,6 +171,7 @@ function renderList(projects) {
              </button>
             </div>
             <a class="detail-link" href="detail?id=${project.id}">詳細を見る</a>
+            <a class="edit-link" href="edit.html?id=${project.id}">更新</a>
             <button class="delete-btn">削除</button>
             <div class="delete-confirm" hidden>
               <p>この案件を削除しますか？</p>

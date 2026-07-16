@@ -70,6 +70,7 @@ public String toString(){
                 + " | 勤務地:" + location
                 + " | 最低金額-最高金額:" + priceMin + " - " + priceMax
                 + " | 配属状況:" + status
+                + " | カテゴリ:" + category
                 + " | 取得日時:" + createdAt
                 + " | 更新日時:" + updatedAt;
     }

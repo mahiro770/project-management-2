@@ -127,7 +127,8 @@ public class ProjectRepository {
             boolean updateLocation,
             boolean updatePriceMin,
             boolean updatePriceMax,
-            boolean updateStatus) {
+            boolean updateStatus,
+            boolean updateCategory) {
 
         List<String> setClauses = new ArrayList<>();
         List<Object> values = new ArrayList<>();
@@ -165,6 +166,11 @@ public class ProjectRepository {
         if (updateStatus) {
             setClauses.add("status = ?");
             values.add(project.getStatus());
+        }
+
+        if (updateCategory) {
+            setClauses.add("category = ?");
+            values.add(project.getCategory());
         }
 
         setClauses.add("updated_at = ?");
